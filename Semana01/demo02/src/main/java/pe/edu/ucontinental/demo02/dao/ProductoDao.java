@@ -1,8 +1,8 @@
 package pe.edu.ucontinental.demo02.dao;
 
-import org.springframework.stereotype.Repository;
+import jakarta.inject.Named;
 
-@Repository	
+@Named
 public class ProductoDao {
 	
 	public void registrar() {

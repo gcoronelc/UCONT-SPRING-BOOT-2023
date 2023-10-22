@@ -1,12 +1,11 @@
 package pe.edu.ucontinental.demo02;
 
-import javax.inject.Inject;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import jakarta.inject.Inject;
 import pe.edu.ucontinental.demo02.service.MateService;
 import pe.edu.ucontinental.demo02.service.ProductoService;
 import pe.edu.ucontinental.demo02.service.VentaService;
@@ -14,7 +13,7 @@ import pe.edu.ucontinental.demo02.service.VentaService;
 @SpringBootApplication
 public class Demo02Application implements CommandLineRunner{
 	
-	@Autowired
+	@Inject
 	private ProductoService productoService;
 	
 	@Autowired

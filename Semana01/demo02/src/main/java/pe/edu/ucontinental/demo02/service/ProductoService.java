@@ -1,14 +1,13 @@
 package pe.edu.ucontinental.demo02.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import pe.edu.ucontinental.demo02.dao.ProductoDao;
 
-@Service
+@Named
 public class ProductoService {
 
-	@Autowired
+	@Inject
 	private ProductoDao productoDao;
 	
 	public void registrar() {
