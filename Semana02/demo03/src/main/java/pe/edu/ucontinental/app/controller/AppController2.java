@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/app2")
 public class AppController2 {
+	
+	@GetMapping
+	public String gustavo() {
+		return "gustavo";
+	}
 
 	@GetMapping("/index")
 	public String home() {
