@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title th:text="${titulo}"></title>
+</head>
+
+<body>
+	<h1 th:text="${titulo}"></h1>
+	<div>
+		<form th:action="@{/procesar}" th:object="${mate}" method="post">
+			<table>
+				<tr>
+					<td>Número 1:</td>
+					<td><input type="text" th:field="*{num1}" placeholder="Número 1"></td>
+				</tr>
+				<tr>
+					<td>Número 2:</td>
+					<td><input type="text" th:field="*{num2}" placeholder="Número 2"></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="Procesar" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+
+</html>

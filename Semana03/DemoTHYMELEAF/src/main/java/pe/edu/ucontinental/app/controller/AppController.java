@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import pe.edu.ucontinental.app.model.MateModel;
 import pe.edu.ucontinental.app.model.Producto;
 
 @Controller
@@ -38,6 +39,21 @@ public class AppController {
 		model.addAttribute("titulo", "Listado de Productos");
 		model.addAttribute("productos", productos);
 		return "listado";
+	}
+	
+	@GetMapping("/promedio")
+	public String promedio(Model model) {
+		model.addAttribute("promedio", 17);
+		model.addAttribute("role", "programer");
+		return "promedio";
+	}
+	
+	@GetMapping("/calculadora")
+	public String calculadora(Model model) {
+		MateModel mate = new MateModel();
+		model.addAttribute("titulo", "CALCULADORA BASICA");
+		model.addAttribute("mate", mate);
+		return "calculadora";
 	}
 
 }

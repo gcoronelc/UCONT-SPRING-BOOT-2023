@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<h1>PROMEDIO</h1>
+	<p>Promedio: <span th:text="${promedio}"></span></p>
+	<p>Condición:
+		<span th:if="${promedio>=13.0}">Aprobado</span>
+		<span th:unless="${promedio>=13.0}">Desaprobado</span>
+	</p>
+
+	<th:block th:if="${promedio>=13.0}">
+		<p>Alianza campeón</p>
+		<p>Toda la vida.</p>
+	</th:block>
+
+	<h2>ROL DEL USUARIO</h2>
+	<div th:switch="${role}">
+		<p th:case="'admin'">User is an administrator</p>
+		<p th:case="'manager'">User is a manager</p>
+		<p th:case="'staff'">User is a staff</p>
+		<p th:case="*">User is some other thing</p>
+	</div>
+</body>
+
+</html>
