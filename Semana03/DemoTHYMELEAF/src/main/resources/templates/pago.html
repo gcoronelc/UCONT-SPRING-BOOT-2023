@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/plantilla::head">
+</head>
+
+<body>
+
+	<header th:replace="plantilla/plantilla::header"> </header>
+
+
+	<div class="container">
+		<h1 th:text="${TITULO}">titulo principal</h1>
+		<div>
+			<form th:action="@{/pago}" th:object="${pago}" method="post">
+				<table>
+					<tr>
+						<td>Horas:</td>
+						<td><input type="text" th:field="*{horas}" placeholder="Cant. horas"></td>
+					</tr>
+					<tr>
+						<td>Pago por hora:</td>
+						<td><input type="text" th:field="*{pagoHora}" placeholder="Pago hora"></td>
+					</tr>
+					<tr>
+						<td>Hijos menores:</td>
+						<td><input type="text" th:field="*{hijos}" placeholder="Numero de hijos"></td>
+					</tr>
+					<tr>
+						<td><input type="submit" value="Procesar" class="btn btn-primary" /></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+
+
+
+		<div th:if="${rpta}">
+			<h1>CALCULO DE SU PAGO</h1>
+			<table th:object="${pago}">
+				<tr>
+					<td>Salario:</td>
+					<td th:text="*{salario}"></td>
+				</tr>
+				<tr>
+					<td>Asignacion:</td>
+					<td th:text="*{asignacion}"></td>
+				</tr>
+				<tr>
+					<td>Bono:</td>
+					<td th:text="*{bono}"></td>
+				</tr>
+				<tr>
+					<td>Ingresos:</td>
+					<td th:text="*{ingresos}"></td>
+				</tr>
+				<tr>
+					<td>Renta:</td>
+					<td th:text="*{renta}"></td>
+				</tr>
+				<tr>
+					<td>Neto:</td>
+					<td th:text="*{neto}"></td>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+
+	<footer th:replace="plantilla/plantilla::footer"> </footer>
+</body>
+
+</html>

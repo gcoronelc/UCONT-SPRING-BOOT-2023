@@ -3,6 +3,7 @@ package pe.edu.ucontinental.app.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,12 +11,25 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import pe.edu.ucontinental.app.model.MateModel;
+import pe.edu.ucontinental.app.model.PagoModel;
 import pe.edu.ucontinental.app.model.Producto;
+import pe.edu.ucontinental.app.service.PagoService;
 
 @Controller
 public class AppController {
+	
+	@Autowired
+	private PagoService pagoService;
+	
+	@GetMapping({ "", "/", "/index" })
+	public String index(Model model) {
+		model.addAttribute("titulo", "SALUDO");
+		model.addAttribute("mensaje", "Bienvenido a Thymeleaf.");
+		return "index";
+	}
+	
 
-	@GetMapping({ "", "/", "/home", "/index" })
+	@GetMapping({ "/home" })
 	public String home(Model model) {
 		model.addAttribute("titulo", "SALUDO");
 		model.addAttribute("mensaje", "Bienvenido a Thymeleaf.");
@@ -68,6 +82,26 @@ public class AppController {
 		model.addAttribute("resultado", "LOS RESULTADOS");
 		model.addAttribute("mate", mate);
 		return "calculadora";
+	}
+	
+	@GetMapping("/pago")
+	public String pago(Model model) {
+		PagoModel pago = new PagoModel();
+		model.addAttribute("pago", pago);
+		return "pago";
+	}
+	
+	@PostMapping("/pago")
+	public String pago(@ModelAttribute PagoModel pago, Model model) {
+		pago = pagoService.procesar(pago);
+		model.addAttribute("pago", pago);
+		model.addAttribute("rpta", "Ok");
+		return "pago";
+	}
+	
+	@ModelAttribute
+	public void addAttributes(Model model) {
+		model.addAttribute("TITULO", "PAGO DEL TRABAJADOR");
 	}
 
 }
