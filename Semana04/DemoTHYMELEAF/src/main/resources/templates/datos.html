@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<h1>CASO 1</h1>
+
+	<div>
+		<p th:text="'ID: ' + ${producto.id}"></p>
+		<p th:text="'NOMBRE: ' + ${producto.nombre}"></p>
+		<p th:text="'PRECIO: ' + ${producto.precio}"></p>
+		<p th:text="'STOCK: ' + ${producto.stock}"></p>
+	</div>
+
+	<h1>CASO 2</h1>
+
+	<div th:object="${producto}">
+		<p th:text="'ID: ' + *{id}"></p>
+		<p th:text="'NOMBRE: ' + *{nombre}"></p>
+		<p th:text="'PRECIO: ' + *{precio}"></p>
+		<p th:text="'STOCK: ' + *{stock}"></p>
+	</div>
+	
+</body>
+
+</html>

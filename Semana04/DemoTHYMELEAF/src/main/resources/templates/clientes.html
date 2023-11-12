@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/plantilla::head">
+</head>
+
+<body>
+
+	<header th:replace="plantilla/plantilla::header"> </header>
+
+	<div class="container">
+
+		<h1>CONSULTA DE CLIENTES</h1>
+		<div>
+			<form method="post" th:action="@{/clientes}">
+				<table>
+					<tbody>
+						<tr>
+							<th>Paterno</th>
+							<th>Materno</th>
+							<th></th>
+						</tr>
+						<tr>
+							<td><input type="text" name="paterno"></td>
+							<td><input type="text" name="materno"></td>
+							<td><button type="submit">Consultra</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+
+		<div th:if="${lista}">
+			<h1>RESULTADO</h1>
+			<table border="1">
+				<thead>
+					<th>CODIGO</th>
+					<th>PATERNO</th>
+					<th>MATERNO</th>
+					<th>NOMBRE</th>
+				</thead>
+				<tbody>
+					<tr th:each="r : ${lista}">
+						<td th:text="${r.codigo}"></td>
+						<td th:text="${r.paterno}"></td>
+						<td th:text="${r.materno}"></td>
+						<td th:text="${r.nombre}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+
+
+	</div>
+
+	<footer th:replace="plantilla/plantilla::footer"> </footer>
+</body>
+
+</html>

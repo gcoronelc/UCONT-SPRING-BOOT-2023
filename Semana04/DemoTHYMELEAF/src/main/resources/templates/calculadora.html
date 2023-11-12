@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/plantilla::head">
+</head>
+
+<body>
+
+	<header th:replace="plantilla/plantilla::header"> </header>
+
+	<div class="container">
+
+		<h1 th:text="${titulo}"></h1>
+		<div>
+			<form th:action="@{/calculadora}" th:object="${mate}" method="post">
+				<table>
+					<tr>
+						<td>Número 1:</td>
+						<td><input type="text" th:field="*{num1}" placeholder="Número 1"></td>
+					</tr>
+					<tr>
+						<td>Número 2:</td>
+						<td><input type="text" th:field="*{num2}" placeholder="Número 2"></td>
+					</tr>
+					<tr>
+						<td><input type="submit" value="Procesar" /></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+
+		<div th:if="${resultado}">
+			<h1 th:text="${resultado}">Aqui van los resultados</h1>
+			<table th:object="${mate}">
+				<tr>
+					<td>Número 1:</td>
+					<td th:text="*{num1}"></td>
+				</tr>
+				<tr>
+					<td>Número 1:</td>
+					<td th:text="*{num2}"></td>
+				</tr>
+				<tr>
+					<td>Suma:</td>
+					<td th:text="*{suma}"></td>
+				</tr>
+				<tr>
+					<td>Producto:</td>
+					<td th:text="*{producto}"></td>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+
+	<footer th:replace="plantilla/plantilla::footer"> </footer>
+</body>
+
+</html>

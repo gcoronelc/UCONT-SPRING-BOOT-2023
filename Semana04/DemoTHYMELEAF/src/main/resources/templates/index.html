@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/plantilla::head">
+</head>
+
+<body>
+
+	<header th:replace="plantilla/plantilla::header"> </header>
+
+	<div class="container">
+
+		<h1 th:text="${titulo}">PRIMERA EXPERIENCIA CON THYMELEAF</h1>
+		<p th:text="${mensaje}">Hola a todos</p>
+
+	</div>
+
+	<footer th:replace="plantilla/plantilla::footer"> </footer>
+
+</body>
+
+</html>
